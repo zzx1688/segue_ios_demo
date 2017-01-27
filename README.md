@@ -10,20 +10,20 @@ segue跳转方法一，直接跳转
 :  >在storyboard中，右击第一个控制器视图中的按钮（或其他控件）拖动到目标控制器视图，在弹出菜单中，选择一个显示模式即可。
 
 segue跳转方法二，代码跳转
-: 1、在storyboard中，选中目标页面，通过最上方的Detail View Controller拖拽到主页面进行segue关联（比如关联到Present Modally）
+: 1、在storyboard中，选中目标页面，通过最上方的Detail View Controller拖拽到主页面进行segue关联（比如关联到Present Modally）
 >右键点击目标视图头部黄色的标志（有一个图标中的左边的那个），在出现的菜单中选择“Present Modally”旁边的圆圈，在圆圈上按住左键拖动到主页面。
 或者，右键点击主页面视图头部黄色的标志，拖动到目标控制器视图，在弹出的菜单中，选择“Present Modally”。
 
 : 2、选中关联线，设置segue的 Identifier 属性（这里设置为“goP2Segue”）。
 >注意，必须要为 segue 设置Identifier属性，否则程序会崩溃。
 
-: 3、在代码中需要跳转处，执行performSegue方法
+: 3、在代码中需要跳转处，执行performSegue方法
 >self.performSegue(withIdentifier: "goP2Segue", sender: self)
 
-segue显示模式
+segue显示模式
 : 在iPhone上可以用到的有modal、push和custom，其他还有几种是iPad上用的：
 1、modal：模态地加载视图控制器，最常用的方式，类似present和dismiss；
-2、push：使用导航栏压进新的视图控制器，类似push和pop，要使用这个模式，跳转的源视图，也就是主控制器必须是Navigation Controller，否则会报错；
+2、push：使用导航栏压进新的视图控制器，类似push和pop，要使用这个模式，跳转的源视图，也就是主控制器必须是Navigation Controller，否则会报错；
 3、custom：用户自定义。
 
 segue传递数据（参数）
@@ -54,7 +54,7 @@ segue返回方法
 	self.presentingViewController!.dismiss(animated: true, completion: nil)
 	```
 : 二、回调返回（Unwind Segue）
-	>1、在主页面控制器中写一个@IBAction修饰的回调的方法
+	>1、在主页面控制器中写一个@IBAction修饰的回调的方法
 	```
 	//segue回调方法，获取返回参数
     @IBAction func backSegue(segue : UIStoryboardSegue){
